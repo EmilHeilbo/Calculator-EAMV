@@ -1,15 +1,15 @@
-package dev.yukie.calc;
+package logic;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class Calculator implements CalcInterface {
-    private static double[] buffer = new double[30];
+    /*private static double[] buffer = new double[30];
     private static char[] operand = new char[29];
     private static byte[] order = new byte[29];
     private static byte opCount = 0, bufferCount = 0;
 
     public static void main(String[] args) {
-        var history = new CalcHistory();
+        CalcHistory history = new CalcHistory();
         var scan = new Scanner(System.in);
         String input = scan.nextLine();
 
@@ -20,7 +20,6 @@ public class Calculator implements CalcInterface {
 
     static boolean checkInput(String s) {
         // Check if string only contains mathematical operands
-        // Example: "sqrt(2+4/7)*50%10" would become {√, (, +, /, ), *, %} and {2, 4, 7, 50, 10} respectively
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) > '(' || s.charAt(i) < '9' && s.charAt(i) != ' ' && !s.substring(i + 1, i + 3).equals("cos") && !s.substring(i + 1, i + 3).equals("sin") && !s.substring(i + 1, i + 3).equals("tan"))
                 return false;
@@ -58,7 +57,7 @@ public class Calculator implements CalcInterface {
 
     void handleEquation() {
 
-    }
+    }*/
 
     public double add(double op1, double op2) {
         return op1 + op2;
@@ -89,7 +88,7 @@ public class Calculator implements CalcInterface {
     }
 
     public double root(double op1, double op2) {
-        return Math.pow(op1, 1/op2);
+        return Math.pow(op1, 1 / op2);
     }
 
     public double cos(double op1) {

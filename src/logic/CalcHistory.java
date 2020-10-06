@@ -1,4 +1,4 @@
-package dev.yukie.calc;
+package logic;
 
 public class CalcHistory {
     protected String[] strings = new String[10];
