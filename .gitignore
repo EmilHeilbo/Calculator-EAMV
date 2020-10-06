@@ -1,3 +1,6 @@
 .idea/
 out/
 Calculator-EAMV.iml
+.classpath
+.project
+/bin/
