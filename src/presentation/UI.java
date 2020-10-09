@@ -8,16 +8,19 @@ import javafx.stage.Stage;
 import logic.*;
 
 public class UI extends Application{
-    public static void main(String[] args) {
+
+	public static void main(String[] args) {
+    	var calc = new Calculator();
     	launch(args);
     }
 
 	@Override
 	public void start(Stage pStage) throws Exception {
-		pStage.setTitle("Calculator title");
+		final int BUTTON_SIZE = 80;
+
+		pStage.setTitle("EAMV - Simple Calculator");
 		GridPane g = new GridPane();
-		g.add(new Text("Hello"), 0, 0);
-		Scene s = new Scene(g);
+		Scene s = new Scene(g, BUTTON_SIZE * 4, BUTTON_SIZE * 7);
 		pStage.setScene(s);
 		pStage.show();
 	}
