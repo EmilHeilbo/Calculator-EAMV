@@ -3,10 +3,17 @@ package presentation;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+<<<<<<< HEAD
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.*;
+=======
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
+>>>>>>> 7e2cfad8fd595fcc2028a6fb7a744b862437976a
 import javafx.stage.Stage;
 import logic.*;
 
@@ -17,6 +24,7 @@ public class UI extends Application {
         launch(args);
     }
 
+<<<<<<< HEAD
     @Override
     public void start(Stage pStage) throws Exception {
         final int BUTTON_SIZE = 80;
@@ -54,4 +62,24 @@ public class UI extends Application {
         pStage.setScene(scene);
         pStage.show();
     }
+=======
+	@Override
+	public void start(Stage pStage) throws Exception {
+		final int BUTTON_SIZE = 80;
+		pStage.setTitle("EAMV - Simple Calculator");
+		pStage.setWidth(4 * BUTTON_SIZE);
+		pStage.setHeight(7 * BUTTON_SIZE);
+
+		VBox vbox = new VBox();
+		GridPane g = new GridPane();
+		Text text = new Text("Smashkey");
+		text.setTextAlignment(TextAlignment.RIGHT);
+		vbox.getChildren().add(text);
+		
+		Scene s = new Scene(vbox);
+		
+		pStage.setScene(s);
+		pStage.show();
+	}
+>>>>>>> 7e2cfad8fd595fcc2028a6fb7a744b862437976a
 }
