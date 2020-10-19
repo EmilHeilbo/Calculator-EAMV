@@ -12,23 +12,23 @@ import javafx.stage.Stage;
 import logic.*;
 
 public class UI extends Application {
-
     public static void main(String[] args) {
         var calc = new Calculator();
         launch(args);
     }
 
     @Override
-    public void start(Stage pStage) throws Exception {
+    public void start(Stage pStage) {
         final int BUTTON_SIZE = 80;
         final int SPACING = 10;
         final int WIDTH = 4;
-        final int HEIGHT = 8;
+        final int HEIGHT = 7;
 
-        pStage.setWidth(BUTTON_SIZE * WIDTH);
-        pStage.setHeight(BUTTON_SIZE * HEIGHT);
+        pStage.setTitle("EAMV - Simple Calculator");
+        pStage.setWidth(BUTTON_SIZE * WIDTH + SPACING * (WIDTH + 1));
+        pStage.setHeight(BUTTON_SIZE * HEIGHT + SPACING * (HEIGHT + 1));
         var grid = new GridPane();
-        grid.setMinSize(WIDTH * BUTTON_SIZE + SPACING * (WIDTH - 1), (HEIGHT - 1) * BUTTON_SIZE + SPACING * (HEIGHT - 2));
+        grid.setMinSize(WIDTH * BUTTON_SIZE + SPACING * (WIDTH + 1), HEIGHT * BUTTON_SIZE + SPACING * (HEIGHT + 1));
         grid.setHgap(SPACING);
         grid.setVgap(SPACING);
         String[] buttonText =
@@ -40,18 +40,22 @@ public class UI extends Application {
                         "1", "2", "3", "tan",
                         "0", ",", "C", "="
                 };
-        var buttons = new Button[buttonText.length];
-        for (int i = 0; i < buttons.length; i++) {
-            buttons[i].setText(buttonText[i]);
-            grid.add(buttons[i], i % WIDTH, i / WIDTH);
-        }
-        pStage.setTitle("EAMV - Simple Calculator");
+        Button[] buttons = new Button[24];
         var scene = new Scene(grid);
-        var text = new Text("Test 1234567890");
-        text.setTextAlignment(TextAlignment.RIGHT);
-        grid.getChildren().add(text);
+        var equationDisplay = new Text("Test");
+        equationDisplay.setTextAlignment(TextAlignment.RIGHT);
+        GridPane.setColumnSpan(equationDisplay, 4);
+        GridPane.setFillWidth(equationDisplay, true);
+        GridPane.setConstraints(equationDisplay, 0, 0);
+        grid.getChildren().add(equationDisplay);
+        for (int i = 0; i < buttons.length; i++) {
+            buttons[i] = new Button("Button-" + (i + 1));
+            buttons[i].setText(buttonText[i]);
+            GridPane.setConstraints(buttons[i], i % WIDTH, i / WIDTH + 1);
+            grid.getChildren().add(buttons[i]);
+        }
 
-        grid.setBackground(new Background(new BackgroundFill(Color.web("FF8000"), CornerRadii.EMPTY, Insets.EMPTY)));
+        grid.setBackground(new Background(new BackgroundFill(Color.web("B8AFA9"), CornerRadii.EMPTY, Insets.EMPTY)));
         pStage.setScene(scene);
         pStage.show();
     }
