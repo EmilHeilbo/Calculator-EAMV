@@ -4,8 +4,10 @@ import javafx.event.EventHandler;
 public class Calculation implements EventHandler<ActionEvent>{
 
 	private Operator op;
-	public Calculation(Operator op) {
+	private UI ui;
+	public Calculation(Operator op,UI ui) {
 		this.op = op;
+		this.ui = ui;
 	}
 	
 	@Override
