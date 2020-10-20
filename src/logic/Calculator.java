@@ -59,6 +59,10 @@ public class Calculator implements CalcInterface {
 
     }*/
 
+    public double op1 = 0, op2 = 0, buffer;
+
+    public enum Operator {ADD, SUB, MUL, DIV, POW, MOD}
+
     public double add(double op1, double op2) {
         return op1 + op2;
     }
@@ -85,10 +89,6 @@ public class Calculator implements CalcInterface {
 
     public double sqrt(double op1) {
         return Math.sqrt(op1);
-    }
-
-    public double root(double op1, double op2) {
-        return Math.pow(op1, 1 / op2);
     }
 
     public double cos(double op1) {
