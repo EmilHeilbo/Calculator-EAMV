@@ -18,13 +18,20 @@ import javafx.stage.Stage;
 import logic.*;
 
 public class UI extends Application {
-    public static void main(String[] args) {
+	
+	private Calculator calc;
+	private Operator operation;
+	private double op1, op2;
+	private Label equationDisplay;
+    
+	
+	public static void main(String[] args) {
         launch(args);
     }
 
     @Override
     public void start(Stage pStage) {
-        var calc = new Calculator();
+        calc = new Calculator();
 
         final int BUTTON_SIZE = 80;
         final int SPACING = 10;
@@ -42,7 +49,7 @@ public class UI extends Application {
         grid.setBackground(new Background(new BackgroundFill(Color.web("B8AFA9"), CornerRadii.EMPTY, Insets.EMPTY)));
 
         String equation = "";
-        var equationDisplay = new Label();
+        equationDisplay = new Label();
         equationDisplay.setAlignment(Pos.CENTER_RIGHT);
         equationDisplay.setPrefSize(BUTTON_SIZE * 4 + SPACING * 3, BUTTON_SIZE);
         equationDisplay.setStyle("-fx-font: 32 arial;");
@@ -68,6 +75,7 @@ public class UI extends Application {
             GridPane.setConstraints(buttons[i], i % WIDTH, i / WIDTH + 1);
             grid.getChildren().add(buttons[i]);
         }
+        buttons[0].setOnAction(new Calculation(Operator.MUL, this));
 
         pStage.setScene(scene);
         pStage.show();
