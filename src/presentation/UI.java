@@ -32,7 +32,7 @@ public class UI extends Application {
         final int HEIGHT = 7;
 
         pStage.setTitle("EAMV - Simple Calculator");
-        pStage.setWidth(BUTTON_SIZE * WIDTH + SPACING * (WIDTH + 1));
+        pStage.setWidth(BUTTON_SIZE * WIDTH + SPACING * (WIDTH - 1));
         pStage.setHeight(BUTTON_SIZE * HEIGHT + SPACING * (HEIGHT + 1));
         
         var grid = new GridPane();
@@ -42,7 +42,7 @@ public class UI extends Application {
         grid.setVgap(SPACING);
         String[] buttonText =
                 {
-                        "%", "|x|", "^", "Sqrt",
+                        "%", "|x|", "^", "sqrt",
                         "+", "-", "*", "/",
                         "7", "8", "9", "cos",
                         "4", "5", "6", "sin",
@@ -53,8 +53,9 @@ public class UI extends Application {
         var scene = new Scene(grid);
         var equationDisplay = new Label("0");
         equationDisplay.setAlignment(Pos.CENTER_RIGHT);
-        equationDisplay.setPrefHeight(BUTTON_SIZE);
+        equationDisplay.setPrefSize(BUTTON_SIZE * 4 + SPACING * 3, BUTTON_SIZE);
         equationDisplay.setStyle("-fx-font: 40 wingdings;");
+        equationDisplay.setBackground(new Background(new BackgroundFill(Color.web("FFFFFF"), CornerRadii.EMPTY, Insets.EMPTY)));
         GridPane.setColumnSpan(equationDisplay, 4);
         GridPane.setFillWidth(equationDisplay, true);
         GridPane.setConstraints(equationDisplay, 0, 0);
