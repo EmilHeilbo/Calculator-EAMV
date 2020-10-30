@@ -14,7 +14,7 @@ public class KeyPressTrigger implements EventHandler<KeyEvent> {
 
     @Override
     public void handle(KeyEvent e) {
-        switch(e.getCode()) {
+        switch (e.getCode()) {
             case DIGIT0 -> buttons[20].fire();
             case DIGIT1 -> buttons[16].fire();
             case DIGIT2 -> buttons[17].fire();
@@ -43,7 +43,8 @@ public class KeyPressTrigger implements EventHandler<KeyEvent> {
             case POWER -> buttons[2].fire();
             case ESCAPE -> buttons[22].fire();
             default -> throw new IllegalArgumentException("Unexpected value: " + e.getCode());
-        };
+        }
+        ;
     }
 
 }
